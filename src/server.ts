@@ -9,8 +9,12 @@ app.get("/", (req, res) => {
 
 app.get("/users", async (_, res) => {
     try {
-        const users = await prisma.user.findMany();
-        res.json(users);
+        const user = await prisma.user.findUnique({
+            where: {
+                id: 5
+            }
+        });
+        res.json(user);
     } catch (error) {
         console.error("Error fetching users:", error);
         res.status(500).json({ error: "Internal Server Error" });

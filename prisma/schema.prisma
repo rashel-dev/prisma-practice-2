@@ -16,8 +16,12 @@ model User {
   id          Int @id @default(autoincrement()) @unique
   name        String 
   email       String  @unique
+  age         Int?
+  address     String?
+  isMarried   Boolean?
+  nationality String?
   created_at  DateTime @default(now())
-  updated_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
 }
 
 model Student {
